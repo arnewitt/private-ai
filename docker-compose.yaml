@@ -2,4 +2,5 @@ include:
   - config/litellm/docker-compose.yaml
   - config/ollama/docker-compose.yaml
   - config/openwebui/docker-compose.yaml
-  # - config/langfuse/docker-compose.yaml
+  - config/langfuse/docker-compose.yaml
+  - config/milvus/docker-compose.yaml
