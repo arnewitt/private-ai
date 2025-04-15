@@ -4,9 +4,11 @@ services:
     ports:
       - "11434:11434"
     volumes:
-      - ${HOME}/.ollama:/root/.ollama # reuse models from host
+      - ollama:/root/.ollama # reuse models from host
     # If model not available on host location ${HOME}/.ollama, download model in running container:
     # 1) docker exec -it <container_name> ollama run <model_name>   or
     # 2) docker exec -it <container_name> ollama pull <model_name>
     environment:
       - OLLAMA_MAX_LOADED_MODELS=2 # idea: one LLM and one embedding model
+volumes:
+  ollama:
