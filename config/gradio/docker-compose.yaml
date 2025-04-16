@@ -1,0 +1,7 @@
+services:
+  gradio-chat-app:
+    build:
+      context: ./../../apps/chat/gradio-simple-chat
+      dockerfile: Dockerfile
+    ports:
+      - "7860:7860"
