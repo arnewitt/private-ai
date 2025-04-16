@@ -1,17 +1,22 @@
 model_list:
-  - model_name: mistral-nemo
+  - model_name: ollama-mistral-nemo
     litellm_params:
       model: ollama/mistral-nemo
       api_base: http://ollama:11434
-  - model_name: mistral
+
+  - model_name: ollama-mistral
     litellm_params:
       model: ollama/mistral
       api_base: http://ollama:11434
       
-  - model_name: gpt-4o-mini
+  - model_name: gpt-4o-mini-2024-07-18
     litellm_params:
-      model: openai/gpt-4o-mini
+      model: openai/gpt-4o-mini-2024-07-18
       api_base: os.environ/OPENAI_API_BASE
       api_key: os.environ/OPENAI_API_KEY
-      api_version: "2023-07-01-preview"
-
+      
+  - model_name: gpt-4.1-mini-2025-04-14
+    litellm_params:
+      model: openai/gpt-4.1-mini-2025-04-14
+      api_base: os.environ/OPENAI_API_BASE
+      api_key: os.environ/OPENAI_API_KEY
