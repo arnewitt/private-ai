@@ -1,6 +1,6 @@
 include:
   - config/litellm/docker-compose.yaml
-  - config/ollama/docker-compose.yaml
+  - config/ollama/docker-compose.yaml # Note: does not support apple silicon GPU acceleration
   #- config/openwebui/docker-compose.yaml
   #- config/langfuse/docker-compose.yaml
   - config/gradio/docker-compose.yaml
