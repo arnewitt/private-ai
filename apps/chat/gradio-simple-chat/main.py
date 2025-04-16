@@ -83,11 +83,66 @@ def chat(model, message, history):
     return history, ""
 
 
-with gr.Blocks() as demo:
-    chat_history = gr.Chatbot()
-    model_dropdown = gr.Dropdown(choices=available_models, label="Choose a model")
-    msg_input = gr.Textbox(placeholder="Enter your message", show_label=False)
-    send_btn = gr.Button("Send")
+css = """
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.chat-title {
+    text-align: center;
+    font-size: 2em;
+    color: #4A90E2;
+    margin-bottom: 20px;
+}
+
+#chat_history {
+    background-color: #FFFFFF;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 15px;
+    min-height: 400px;
+}
+
+#msg_input {
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    padding: 10px;
+    font-size: 1em;
+}
+
+#send_btn {
+    background-color: #4A90E2;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#model_dropdown {
+    margin-top: 10px;
+}
+"""
+
+with gr.Blocks(css=css) as demo:
+    gr.Markdown("<h1 class='chat-title'>Chatbot Interface for Testing</h1>")
+    with gr.Row():
+        with gr.Column(scale=3):
+            chat_history = gr.Chatbot(elem_id="chat_history")
+            with gr.Row():
+                msg_input = gr.Textbox(
+                    placeholder="Enter your message",
+                    show_label=False,
+                    elem_id="msg_input",
+                )
+                send_btn = gr.Button("Send", elem_id="send_btn")
+        with gr.Column(scale=1):
+            model_dropdown = gr.Dropdown(
+                choices=available_models,
+                label="Choose a model",
+                elem_id="model_dropdown",
+            )
     state = gr.State([])
 
     send_btn.click(
