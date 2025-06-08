@@ -5,6 +5,6 @@ services:
       - ./litellm.yaml:/app/config.yaml
     command: --config /app/config.yaml --detailed_debug
     env_file: 
-      - ../../.env
+      - ../../stack.env
     ports:
       - "4000:4000"

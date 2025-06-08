@@ -1,3 +1,4 @@
 .env
 .venv
 clean_and_run.sh
+stack.env
